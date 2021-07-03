@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Output Result</title>
+  </head>
+  <body>
+    <script>
+      // ============================================================================================
+      // 작은 두 변의 길이의 합이 가장 큰 변의 합보다 커야 삼각형이 형성된다.
+      // to be a triangle, sum of length of two sides must be greater than length of the most longest side
+      // ============================================================================================
+
+      function solution(a, b, c) {
+        let sum = a + b + c;
+        let max;
+        if (a < b) max = b;
+        else max = a;
+        if (c > max) max = c;
+        if (sum - max <= max) return "no";
+        else return "yes";
+      }
+
+      console.log(solution(10, 19, 11)); // return 'yes'
+      console.log(solution(6, 7, 11)); // return 'yes'
+      console.log(solution(13, 33, 17)); // return 'no'
+    </script>
+  </body>
+</html>

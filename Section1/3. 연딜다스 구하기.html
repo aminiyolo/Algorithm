@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Output Result</title>
+  </head>
+  <body>
+    <script>
+      // ============================================================================================
+      // 사람 1명당 연필 한자루 씩 지급하기 위하여 필요한 연필 다스의 개수.
+      // Answer number of dozen pencils that we need to give out per person
+      // ============================================================================================
+
+      function solution(n) {
+        let answer;
+        answer = Math.ceil(n / 12);
+        return answer;
+      }
+      console.log(solution(178));
+      console.log(solution(25));
+      console.log(solution(13));
+    </script>
+  </body>
+</html>

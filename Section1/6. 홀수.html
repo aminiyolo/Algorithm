@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Output Result</title>
+  </head>
+  <body>
+    <script>
+      // ============================================================================================
+      // 주어진 숫자에서 홀수를 찾고 홀수의 합과 홀수의 최소값을 찾기
+      // Find a odd number between given numbers and find a minimum number between odd numbers
+      // ============================================================================================
+
+      function solution(arr) {
+        let answer = [];
+        let min = Number.MAX_SAFE_INTEGER;
+        let sum = 0;
+
+        for (let n of arr) {
+          if (n % 2 === 1) {
+            sum += n;
+            if (n < min) min = n;
+          }
+        }
+        answer.push(sum);
+        answer.push(min);
+        return answer;
+      }
+      let arr = [12, 77, 38, 41, 53, 92, 85];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>

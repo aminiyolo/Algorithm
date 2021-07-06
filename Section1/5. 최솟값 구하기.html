@@ -9,17 +9,17 @@
       // 7개의 수가 주어지면 그 숫자 중 가장 작은 수
       // ============================================================================================
 
-      function solution_1(a, b, c, d, e, f, g) {
-        const numbers = [a, b, c, d, e, f, g];
+      function solution_1(arr) {
         let answer,
           min = Number.MAX_SAFE_INTEGER;
-        for (i = 0; i < numbers.length; i++) {
-          if (numbers[i] < min) min = numbers[i];
+        for (i = 0; i < arr.length; i++) {
+          if (arr[i] < min) min = arr[i];
         }
         answer = min;
         return answer;
       }
-      console.log(solution_1(5, 7, 8, 3, 2, 9, 11));
+      const arr = [5, 7, 8, 3, 2, 9, 11];
+      console.log(solution_1(arr));
     </script>
   </body>
 </html>

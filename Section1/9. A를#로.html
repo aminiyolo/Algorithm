@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Output Result</title>
+  </head>
+  <body>
+    <script>
+      // ==================================================================================================================
+      // 대문자로  이루어진  영어단어가  입력되면  단어에  포함된  ‘A'를  모두  ’#‘으로  바꾸어  출력
+      // 입력예제: BANANA
+      // 출력예제: B#N#N#
+      // ==================================================================================================================
+
+      function solution(word) {
+        // let answer = word.replaceAll("A", "#");
+
+        let answer = "";
+        for (let x of word) {
+          if (x === "A") answer += "#";
+          else answer += x;
+        }
+        return answer;
+      }
+      console.log(solution("BANANA"));
+    </script>
+  </body>
+</html>

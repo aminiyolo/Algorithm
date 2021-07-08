@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Output Result</title>
+  </head>
+  <body>
+    <script>
+      // ==================================================================================================================
+      // 대문자와  소문자가  같이  존재하는  문자열을  입력받아  대문자로  모두  통일
+      // 입력예제: ItisTimeToStudy
+      // 출력예제: ITISTIMETOSTUDY
+      // ==================================================================================================================
+
+      function solution(word) {
+        let answer = "";
+        for (let x of word) {
+          if (x === x.toUpperCase()) answer += x;
+          else {
+            answer += x.toUpperCase();
+          }
+        }
+
+        return answer;
+      }
+      console.log(solution("ItisTimeToStudy"));
+    </script>
+  </body>
+</html>

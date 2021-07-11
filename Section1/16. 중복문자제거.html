@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Output Result</title>
+  </head>
+  <body>
+    <script>
+      // ==================================================================================================================
+      // 소문자로  된  한개의  문자열이  입력되면  중복된  문자를  제거하고  출력
+      // 입력예제: ksekkset
+      // 출력예제: kset
+      // ==================================================================================================================
+
+      function solution(word) {
+        let answer = "";
+        for (let i = 0; i < word.length; i++) {
+          // console.log(word[i], i, word.indexOf(word[i]));
+          if (i === word.indexOf(word[i])) {
+            answer = answer += word[i];
+          }
+        }
+        return answer;
+      }
+      console.log(solution("ksekkset"));
+      console.log(solution("PARKKPARK"));
+    </script>
+  </body>
+</html>

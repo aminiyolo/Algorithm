@@ -6,20 +6,19 @@
   <body>
     <script>
       // ==================================================================================================================
-      // 한  개의  문자열을  입력받아  해당  문자열에  알파벳  대문자가  몇  개  있는지 알아내기
-      // 입력예제: KoreaTimeGood
-      // 출력예제: 3
+      // N개의 문자열이 입력되면 중복된 문자열은 제거하고 출력
+      // 입력예제: good, time, good, time, student
+      // 출력예제: good, time , student
       // ==================================================================================================================
 
-      function solution(word) {
-        let answer = 0;
-        for (let x of word) {
-          if (x === x.toUpperCase()) answer++;
-        }
-
+      function solution(arr) {
+        let answer = arr.filter((v, i) => {
+          return i === arr.indexOf(arr[i]);
+        });
         return answer;
       }
-      console.log(solution("KoreaTimeGood"));
+      const arr = ["good", "time", "good", "time", "student"];
+      console.log(solution(arr));
     </script>
   </body>
 </html>

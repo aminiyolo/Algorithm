@@ -6,20 +6,24 @@
   <body>
     <script>
       // ==================================================================================================================
-      // 한  개의  문자열을  입력받아  해당  문자열에  알파벳  대문자가  몇  개  있는지 알아내기
-      // 입력예제: KoreaTimeGood
-      // 출력예제: 3
+      // 대문자와  소문자가  같이  존재하는  문자열을  입력받아  대문자는  소문자로  소문자는  대문자로 변환
+      // 입력예제: StuDY
+      // 출력예제: sTUdy
       // ==================================================================================================================
 
       function solution(word) {
-        let answer = 0;
+        let answer = "";
         for (let x of word) {
-          if (x === x.toUpperCase()) answer++;
+          if (x === x.toUpperCase()) {
+            answer += x.toLowerCase();
+          } else {
+            answer += x.toUpperCase();
+          }
         }
 
         return answer;
       }
-      console.log(solution("KoreaTimeGood"));
+      console.log(solution("StuDY"));
     </script>
   </body>
 </html>

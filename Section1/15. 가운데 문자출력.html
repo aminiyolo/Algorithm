@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Output Result</title>
+  </head>
+  <body>
+    <script>
+      // ==================================================================================================================
+      // 소문자로 된 단어(문자열)가 입력되면 그 단어의 가운데 문자를 출력
+      // 입력예제: study
+      // 출력예제: u
+      // 입력예제: good
+      // 출력예제: oo
+      // ==================================================================================================================
+
+      function solution(word) {
+        let answer = "";
+        let mid = Math.floor(word.length / 2);
+        if (word.length % 2 !== 0) {
+          answer = word.substr(mid, 1);
+        } else {
+          answer = word.substr(mid - 1, 2);
+        }
+        return answer;
+      }
+      console.log(solution("study"));
+      console.log(solution("good"));
+      console.log(solution("12345678"));
+    </script>
+  </body>
+</html>

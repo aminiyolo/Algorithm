@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Output Result</title>
+  </head>
+  <body>
+    <script>
+      // ==================================================================================================================
+      // N개의 문자열이 입력되면 그 중 가장 긴 문자열을 출력
+      // 입력예제: 5, teacher, time, student, beautiful, good
+      // 출력예제: beautiful
+      // ==================================================================================================================
+
+      function solution(n, arr) {
+        let answer = "";
+        let min = 0;
+        // for (let i = 0; i < n; i++) {
+        //   let result = arr[i].split("");
+        //   if (result.length > min) {
+        //     min = result.length;
+        //     answer = arr[i];
+        //   }
+        // }
+
+        for (let x of arr) {
+          if (x.length > min) {
+            min = x.length;
+            answer = x;
+          }
+        }
+        return answer;
+      }
+      const arr = ["teacher", "time", "student", "beautiful", "good"];
+      console.log(solution(5, arr));
+    </script>
+  </body>
+</html>

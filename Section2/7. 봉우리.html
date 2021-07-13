@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Output Result</title>
+  </head>
+  <body>
+    <script>
+      // ==============================================================================================
+      // 격자판의  숫자  중  자신의  상하좌우  숫자보다  큰  숫자는  봉우리  지역입니다.
+      // 봉우리  지역이  몇  개 있는 지 알아내는 프로그램을 작성, 격자의 가장자리는 0으로 초기화 되었다고 가정
+      // 입력예제: 5 3 7 2 3
+      //          3 7 1 6 1
+      //          7 2 5 3 4
+      //          4 3 6 4 1
+      //          8 7 3 5 2
+      // 출력예제: 10
+      // ==============================================================================================
+
+      function solution(arr) {
+        let answer = 0;
+        let len = arr.length;
+        let tx = [-1, 0, 1, 0];
+        let ty = [0, 1, 0, -1];
+
+        for (let i = 0; i < len; i++) {
+          for (let j = 0; j < len; j++) {
+            let result = true;
+            for (let k = 0; k < 4; k++) {
+              let ax = i + tx[k];
+              let ay = j + ty[k];
+              if (
+                ax >= 0 &&
+                ax < len &&
+                ay >= 0 &&
+                ay < len &&
+                arr[ax][ay] >= arr[i][j]
+              ) {
+                result = false;
+                break;
+              }
+            }
+            if (result) answer++;
+          }
+        }
+
+        return answer;
+      }
+      const arr = [
+        [5, 3, 7, 2, 3],
+        [3, 7, 1, 6, 1],
+        [7, 2, 5, 3, 4],
+        [4, 3, 6, 4, 1],
+        [8, 7, 3, 5, 2],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>

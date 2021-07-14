@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Output Result</title>
+  </head>
+  <body>
+    <script>
+      // ============================================================================================
+      // 앞에서  읽을  때나  뒤에서  읽을  때나  같은  문자열을  회문  문자열이라고  합니다.
+      // 문자열이  입력되면  해당  문자열이  회문  문자열이면  "YES",  회문  문자열이  아니면  “NO"를  출력
+      // 단  회문을  검사할  때  대소문자를  구분하지  않습니다.
+      // 입력예제: gooG
+      // 출력예제: YES
+      // ============================================================================================
+
+      function solution(str) {
+        let answer = "NO";
+        let result = true;
+        let len = str.length;
+        let mid = len / 2;
+        let s = str.toLowerCase();
+        for (let i = 0; i < mid; i++) {
+          if (s[i] !== s[len - i - 1]) {
+            result = false;
+            break;
+          }
+        }
+        if (result) answer = "YES";
+        // let s = str.toLowerCase();
+        // if (s === s.split("").reverse().join("")) answer = "YES";
+        return answer;
+      }
+      const str = "gooG";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>

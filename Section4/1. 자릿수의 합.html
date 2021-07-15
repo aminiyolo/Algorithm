@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Output Result</title>
+  </head>
+  <body>
+    <script>
+      // ============================================================================================
+      // N개의  자연수가  입력되면  각  자연수의  자릿수의  합을  구하고,  그  합이  최대인  자연수를  출력
+      // 자릿수의 합이 같은 경우 원래 숫자가 큰 숫자를 답으로 합니다.
+      // 만약 235 와 1234가 동시에 답이 될 수 있다면 1234를 답으로 출력해야 합니다
+      // 입력예제: 128 460 603 40 521 137 123
+      // 출력예제: 137
+      // ============================================================================================
+
+      function solution(arr) {
+        let answer = "";
+        let max = Number.MIN_SAFE_INTEGER;
+        let sum = 0;
+
+        // for (let x of arr) {
+        //   let s = x.toString();
+        //   for (i = 0; i < s.length; i++) {
+        //     sum += Number(s[i]);
+        //   }
+        //   if (sum > max) {
+        //     max = sum;
+        //     answer = arr[arr.indexOf(x)];
+        //   } else if (sum === max) {
+        //     answer = Math.max(answer, arr[arr.indexOf(x)]);
+        //   }
+        //   sum = 0;
+        // }
+
+        for (let x of arr) {
+          let n = x;
+          while (n) {
+            sum += n % 10;
+            n = Math.floor(n / 10);
+          }
+          if (sum > max) {
+            max = sum;
+            answer = x;
+          } else if (sum === max) {
+            if (x > answer) {
+              answer = x;
+            }
+          }
+          sum = 0;
+        }
+
+        // for (let x of arr) {
+        //   sum = x
+        //     .toString()
+        //     .split("")
+        //     .reduce((a, b) => a + Number(b), 0);
+        //   if (sum > max) {
+        //     max = sum;
+        //     answer = x;
+        //   } else if (sum === max) {
+        //     if (x > answer) answer = x;
+        //   }
+        // }
+
+        return answer;
+      }
+      const arr = [128, 460, 603, 40, 521, 137, 123];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>

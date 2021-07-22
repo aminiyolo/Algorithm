@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Output Result</title>
+  </head>
+  <body>
+    <script>
+      // ============================================================================================
+      // S문자열에서  T문자열과  아나그램이  되는  S의  부분문자열의  개수를  구하는  프로그램을  작성하세요.
+      // 아나그램 판별시 대소문자가 구분됩니다. 부분문자열은 연속된 문자열이어야 합니다.
+      // 첫 줄에 첫 번째 S문자열이 입력되고, 두 번째 줄에 T문자열이 입력됩니다.
+      // S문자열의 길이는 10,000을 넘지 않으며, T문자열은 S문자열보다 길이가 작거나 같습니다.
+      // S단어에 T문자열과 아나그램이 되는 부분문자열의 개수를 출력합니다
+      // 입력예제: bacaAacba
+      //          abc
+      // 출력예제: 3
+      // ============================================================================================
+
+      function compareMaps(map1, map2) {
+        if (map1.size !== map2.size) return false;
+        for (let [key, val] of map1) {
+          if (!map2.has(key) || map2.get(key) !== val) return false;
+        }
+        return true;
+      }
+
+      function solution(s, t) {
+        let answer = 0;
+        let p1 = 0;
+        let hashS = new Map();
+        let hashT = new Map();
+
+        for (let x of t) {
+          if (hashT.has(x)) hashT.set(x, hashT.get(x) + 1);
+          else hashT.set(x, 1);
+        }
+
+        let len = t.length - 1;
+        for (let i = 0; i < len; i++) {
+          if (hashS.has(s[i])) hashS.set(s[i], hashS.get(s[i]) + 1);
+          else hashS.set(s[i], 1);
+        }
+
+        for (let p2 = len; p2 < s.length; p2++) {
+          if (hashS.has(s[p2])) hashS.set(s[p2], hashS.get(s[p2]) + 1);
+          else hashS.set(s[p2], 1);
+          if (compareMaps(hashS, hashT)) answer++;
+          hashS.set(s[p1], hashS.get(s[p1]) - 1);
+          if (hashS.get(s[p1]) === 0) hashS.delete(s[p1]);
+          p1++;
+        }
+
+        return answer;
+      }
+
+      let s1 = "bacaAacba";
+      let s2 = "abc";
+      console.log(solution(s1, s2)); // 3
+    </script>
+  </body>
+</html>

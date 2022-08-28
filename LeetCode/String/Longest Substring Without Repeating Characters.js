@@ -64,7 +64,7 @@ const lengthOfLongestSubstring = function (s) {
   if (!s.length) {
     return 0;
   }
-  s;
+
   for (let i = 0; i < s.length; i++) {
     tmp = tmp.substring(tmp.indexOf(s[i]) + 1);
     tmp = tmp + s[i];
